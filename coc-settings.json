@@ -1,0 +1,18 @@
+{
+    "diagnostic.errorSign": "NO",
+    "diagnostic.warningSign": "TF",
+    "diagnostic.infoSign": "ii",
+    "diagnostic.hintSign": "??",
+    "svelte.enable-ts-plugin": true,
+    "typescript.suggest.includeCompletionsWithSnippetText": true,
+    "typescript.suggest.includeCompletionsForImportStatements": true,
+    "snippets.ultisnips.pythonPrompt": false,
+    "typescript.suggestionActions.enabled": true,
+    "eslint.run": "onType",
+    "workspace.ignoredFolders": [
+        "$HOME",
+        "$HOME/.cargo/**",
+        "$HOME/.rustup/**"
+    ],
+    "rust-analyzer.diagnostics.enable": true,
+}
