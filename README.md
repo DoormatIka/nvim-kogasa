@@ -1,4 +1,4 @@
-## Kogasa's Neovim
+# Kogasa's Neovim
 Yomo's minimalist configuration for Neovim.
 
 - `n`: Normal Mode
