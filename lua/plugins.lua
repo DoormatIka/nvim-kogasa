@@ -49,9 +49,9 @@ return require("packer")
 			"nvim-neo-tree/neo-tree.nvim",
 			branch = "v2.x",
     	    requires = { 
-      	        "nvim-lua/plenary.nvim",
-      	        "nvim-tree/nvim-web-devicons",
-     	 	    "MunifTanjim/nui.nvim",
+    	        "nvim-lua/plenary.nvim",
+    	        "nvim-tree/nvim-web-devicons",
+    			"MunifTanjim/nui.nvim",
     	    },
         config = function ()
             require("neo-tree").setup({
@@ -73,7 +73,7 @@ return require("packer")
                     }
                 },
                 filesystem = {
-                    use_libuv_file_watcher = true,
+                    use_libuv_file_watcher = false,
                     filtered_items = {
                         visible = true,
                         hide_dotfiles = false,
@@ -96,12 +96,33 @@ return require("packer")
             require("lualine").setup {}
         end
     }
+	use {
+		'norcalli/nvim-colorizer.lua',
+	}
+	use {
+  		"themaxmarchuk/tailwindcss-colors.nvim",
+  		module = "tailwindcss-colors",
+  		config = function ()
+    		require("tailwindcss-colors").setup()
+  		end
+	}
+	use { "dstein64/vim-startuptime" }
     use { "neoclide/coc.nvim", branch = "release" }
     use { "leafOfTree/vim-svelte-plugin" }
     use {
+		"folke/which-key.nvim",
+  		config = function()
+    		vim.o.timeout = true
+    		vim.o.timeoutlen = 300
+    		require("which-key").setup {}
+  		end
+	}
+	use {
         "nvim-treesitter/nvim-treesitter",
         config = function ()
-            require("nvim-treesitter.configs").setup {
+			require 'nvim-treesitter.install'.prefer_git = false
+			require 'nvim-treesitter.install'.compilers = { "clang" }
+            require 'nvim-treesitter.configs'.setup {
                 ensure_installed = { "lua", "vim", "javascript", "typescript" },
                 auto_install = true,
                 sync_install = false,
@@ -132,9 +153,9 @@ return require("packer")
             debounce_timeout = 20,
             client_id = "940504579722842112",
 
-            editing_text = "Polishing %s",
-            file_explorer_text = "Browsing the Human Village",
-            git_commit_text = "Selling %s",
+            editing_text = "Polishing and forging %s in the workshop.",
+            file_explorer_text = "Browsing the Human Village.",
+            git_commit_text = "Selling %s off my creations.",
             plugin_manager_text = "Managing my tools",
             reading_text = "Reading %s",
             workspace_text = "Forging %s",
@@ -204,6 +225,8 @@ return require("packer")
             "anuvyklack/animation.nvim"
         },
         config = function()
+			vim.o.winminwidth = 7
+			vim.o.winwidth = 7
             require('windows').setup()
         end
     }

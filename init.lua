@@ -7,7 +7,7 @@ set.ft = xxd
 set.updatetime = 300
 set.shiftwidth = 4
 set.tabstop = 4
-set.expandtab = true
+set.expandtab = false
 set.number = true
 set.clipboard = "unnamedplus"
 set.cursorline = true
@@ -95,7 +95,13 @@ keyset("n", "<leader>c", ":<C-u>CocList commands<cr>", code_actions_opts)
 -------------- PLUGINS ---------------
 require("plugins")
 
--- workspaces custom keybinds
+-- colorizer
+require'colorizer'.setup()
+
+-- tailwindCSS
+vim.cmd([[
+	au FileType html let b:coc_root_patterns = ['.git', '.env', 'tailwind.config.js', 'tailwind.config.cjs']
+]]) 
 
 -- <leader> = ";"
 local builtin = require("telescope.builtin")

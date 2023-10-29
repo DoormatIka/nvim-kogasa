@@ -3,6 +3,7 @@
     "diagnostic.warningSign": "TF",
     "diagnostic.infoSign": "ii",
     "diagnostic.hintSign": "??",
+	"coc.preferences.formatOnType": true,
     "svelte.enable-ts-plugin": true,
     "typescript.suggest.includeCompletionsWithSnippetText": true,
     "typescript.suggest.includeCompletionsForImportStatements": true,
@@ -14,5 +15,9 @@
         "$HOME/.cargo/**",
         "$HOME/.rustup/**"
     ],
+	"css.lint.unknownAtRules": "ignore",
     "rust-analyzer.diagnostics.enable": true,
+	"rust-analyzer.workspace.symbol.search.scope": "workspace",
+	"rust-analyzer.server.path": "C:/Users/muya/Documents/muyas-files/programming/rust/lsp",
+    "clangd.path": "C:\\Users\\muya\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\16.0.2\\clangd_16.0.2\\bin\\clangd.exe",
 }
