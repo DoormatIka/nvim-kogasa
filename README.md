@@ -27,12 +27,28 @@ Yomo's minimalist configuration for Neovim.
 ## Personal Useful Key Combos
 Keybinds with `+blank` can be chained into other keys.
 
-- `cw[word]` - `+Change +word [word]` 
 Replaces the previous word with [word]. Really cool stuff.
 - `A` - A shorter distance than `$`. Jumps to the end of the line in insert mode.
 - `yy` - Yanks current line. You don't have to press `V + y` anymore.
+- `[F | f][letter]` - Jumps [back | forward] to the nearest [letter].
+
+Operators:
+- `cw[w|a|i]` - `+Change +word [blank]` 
 - `da[]` - `+Delete +around [blank]`. 
-da[p] deletes a paragraph, da[s] deletes a sentence, da[b] deletes parenthesis, da[B] deletes curly braces.
+- `vi[]` - `+Visual +inside [blank]`
+- `yi[]` - `+Yank +inside [blank]`
+
+Essential operators include: W (contigious text), w (word), a (around), i (inside).
+
+E.g: 
+- `d[a | i][p]` deletes a paragraph
+- `d[a | i][s]` deletes a sentence
+- `d[a | i][( | < | {]` deletes parenthesis, angle brackets, and curly braces.
+The `a` in `da` can be replaced with the essential operators.
+
+- v[a | i][w | s | p] selects a word, sentence, paragraph
+
+jumpscare {  dasdasd }
 
 Leaving a key/keys after it was pressed in normal mode shows you the keybinds you could do.
 
