@@ -1,23 +1,34 @@
 {
-    "diagnostic.errorSign": "NO",
-    "diagnostic.warningSign": "TF",
-    "diagnostic.infoSign": "ii",
-    "diagnostic.hintSign": "??",
+	"diagnostic.errorSign": "NO",
+	"diagnostic.warningSign": "TF",
+	"diagnostic.infoSign": "ii",
+	"diagnostic.hintSign": "??",
 	"coc.preferences.formatOnType": true,
-    "svelte.enable-ts-plugin": true,
-    "typescript.suggest.includeCompletionsWithSnippetText": true,
-    "typescript.suggest.includeCompletionsForImportStatements": true,
-    "snippets.ultisnips.pythonPrompt": false,
-    "typescript.suggestionActions.enabled": true,
-    "eslint.run": "onType",
-    "workspace.ignoredFolders": [
-        "$HOME",
-        "$HOME/.cargo/**",
-        "$HOME/.rustup/**"
-    ],
+	"svelte.enable-ts-plugin": true,
+	"typescript.suggest.includeCompletionsWithSnippetText": true,
+	"typescript.suggest.includeCompletionsForImportStatements": true,
+	"snippets.ultisnips.pythonPrompt": false,
+	"typescript.suggestionActions.enabled": true,
+	"eslint.run": "onType",
+	"workspace.ignoredFolders": [
+			"$HOME",
+			"$HOME/.cargo/**",
+			"$HOME/.rustup/**"
+	],
+	"sumneko-lua.enableNvimLuaDev": true,
 	"css.lint.unknownAtRules": "ignore",
-    "rust-analyzer.diagnostics.enable": true,
+	"rust-analyzer.diagnostics.enable": true,
 	"rust-analyzer.workspace.symbol.search.scope": "workspace",
 	"rust-analyzer.server.path": "C:/Users/muya/Documents/muyas-files/programming/rust/lsp",
-    "clangd.path": "C:\\Users\\muya\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\16.0.2\\clangd_16.0.2\\bin\\clangd.exe",
+	"rust-analyzer.lens.enable": true,
+	"clangd.path": "C:\\Users\\muya\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\16.0.2\\clangd_16.0.2\\bin\\clangd.exe",
+	"eslint.autoFixOnSave": true,
+	"languageserver": {
+		"csharp-ls": {
+			"command": "csharp-ls",
+			"filetypes": ["cs"],
+			"rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
+		}
+	},
+	"omnisharp.version": "v1.37.6",
 }

@@ -5,8 +5,8 @@ local version = vim.version()
 simple = {
     [[ ###################### ]],
     [[   .-^-.        Sealed  ]],
-    [[  '"'|`"`   o    Cloud  ]],
-    [[     j     /|\   Route  ]],
+    [[  '"'|`"`        Cloud  ]],
+    [[     j           Route  ]],
     [[ ###################### ]],
 }
 

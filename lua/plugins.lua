@@ -1,3 +1,4 @@
+
 local ensure_packer = function()
     local fn = vim.fn
     local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -11,12 +12,13 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require("packer")
-	.startup(function (use) 
+	.startup(function (use)
 		use "wbthomason/packer.nvim"
         use {
             "nvim-telescope/telescope.nvim",
             requires = { {"nvim-lua/plenary.nvim"} },
             config = function ()
+				local actions = require("telescope.actions")
                 require("telescope").setup {
                     pickers = {
                         find_files = {
@@ -25,17 +27,36 @@ return require("packer")
                         help_tags = {
                             theme = "dropdown"
                         }
-                    }
+                    },
+					defaults = {
+						path_display = { "smart" },
+						mappings = {
+							n = {
+								["<C-d>"] = actions.delete_buffer
+							},
+							i = {
+								["<C-h>"] = "which_key",
+								["<C-d>"] = actions.delete_buffer
+							}
+						}
+					}
                 }
             end
         }
+		use { "rebelot/kanagawa.nvim",
+			config = function ()
+				require("kanagawa").setup {
+					theme = "wave"
+				}
+			end
+		}
         use {
-            "rose-pine/neovim", 
+            "rose-pine/neovim",
             as = "rose-pine",
             config = function ()
                 require("rose-pine").setup {
-                    variant = "moon",
-                    dark_variant = "moon",
+                    variant = "dawn",
+                    dark_variant = "main",
                     disable_background = false,
                     highlight_groups = {
                         ColorColumn = { bg = "rose" },
@@ -48,7 +69,7 @@ return require("packer")
 		use {
 			"nvim-neo-tree/neo-tree.nvim",
 			branch = "v2.x",
-    	    requires = { 
+    	    requires = {
     	        "nvim-lua/plenary.nvim",
     	        "nvim-tree/nvim-web-devicons",
     			"MunifTanjim/nui.nvim",
@@ -89,6 +110,29 @@ return require("packer")
             })
         end
 	}
+	use {
+		"akinsho/bufferline.nvim",
+		tag = "*",
+		requires = 'nvim-tree/nvim-web-devicons',
+		config = function ()
+			require("bufferline").setup {
+				options = {
+					mode = "tabs",
+					numbers = "ordinal",
+					diagnostics = "coc",
+					diagnostics_indicator = function(count, level, diagnostics_dict, context)
+						local s = " "
+						for e, n in pairs(diagnostics_dict) do
+							local sym = e == "error" and "E "
+								or (e == "warning" and "W " or "I" )
+							s = s .. n .. sym
+						end
+						return s
+					end
+				}
+			}
+		end
+	}
     use {
         "nvim-lualine/lualine.nvim",
         requires = { "nvim-tree/nvim-web-devicons", opt = true },
@@ -109,21 +153,19 @@ return require("packer")
 	use { "dstein64/vim-startuptime" }
     use { "neoclide/coc.nvim", branch = "release" }
     use { "leafOfTree/vim-svelte-plugin" }
-    use {
-		"folke/which-key.nvim",
-  		config = function()
-    		vim.o.timeout = true
-    		vim.o.timeoutlen = 300
-    		require("which-key").setup {}
-  		end
+	use {
+		"NStefan002/screenkey.nvim",
+		config = function()
+			require("screenkey").setup()
+		end,
 	}
 	use {
         "nvim-treesitter/nvim-treesitter",
         config = function ()
 			require 'nvim-treesitter.install'.prefer_git = false
 			require 'nvim-treesitter.install'.compilers = { "clang" }
-            require 'nvim-treesitter.configs'.setup {
-                ensure_installed = { "lua", "vim", "javascript", "typescript" },
+			require 'nvim-treesitter.configs'.setup {
+                ensure_installed = { "wgsl", "lua", "vim", "javascript", "typescript" },
                 auto_install = true,
                 sync_install = false,
                 highlight = {
@@ -143,24 +185,6 @@ return require("packer")
             local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
             ts_update()
         end
-    }
-    use {
-      "andweeb/presence.nvim",
-      config = function ()
-        require("presence").setup({
-            neovim_image_text = "Kogasa's Blacksmith House",
-            log_level = "debug",
-            debounce_timeout = 20,
-            client_id = "940504579722842112",
-
-            editing_text = "Polishing and forging %s in the workshop.",
-            file_explorer_text = "Browsing the Human Village.",
-            git_commit_text = "Selling %s off my creations.",
-            plugin_manager_text = "Managing my tools",
-            reading_text = "Reading %s",
-            workspace_text = "Forging %s",
-        })
-      end
     }
     use {
       "gelguy/wilder.nvim",
@@ -189,14 +213,6 @@ return require("packer")
           modes = { ":", "/", "?" }
         })
       end,
-    }
-    use {
-      "ellisonleao/glow.nvim",
-      config = function()
-        require("glow").setup({
-          style="dark"
-        })
-      end
     }
     use {
       "lewis6991/gitsigns.nvim",
