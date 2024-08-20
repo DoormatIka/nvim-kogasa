@@ -22,6 +22,9 @@
 	"rust-analyzer.server.path": "C:/Users/muya/Documents/muyas-files/programming/rust/lsp",
 	"rust-analyzer.lens.enable": true,
 	"clangd.path": "C:\\Users\\muya\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\16.0.2\\clangd_16.0.2\\bin\\clangd.exe",
+	"go.goplsOptions": {
+		"symbolScope": "all",
+	},
 	"eslint.autoFixOnSave": true,
 	"languageserver": {
 		"csharp-ls": {

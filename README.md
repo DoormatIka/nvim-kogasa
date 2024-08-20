@@ -7,7 +7,7 @@ Yomo's minimalist configuration for Neovim.
 - `<leader>`: ";"
 
 ### Installation:
-1. Clone this to `C:\Users\[username]\AppData\Local\nvim`
+1. Clone this to `C:\Users\[username]\AppData\Local\nvim` (for Windows), `~/.config/nvim` (for Linux)
 2. Do `:PackerSync` after you get into Neovim.
 3. Done!
 
