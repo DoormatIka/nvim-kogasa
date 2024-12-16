@@ -165,5 +165,10 @@ vim.o.equalalways = false
 keyset("n", "<C-w>z", "<Cmd>WindowsEqualize<CR>")
 keyset("n", "<C-w>p", "<Cmd>WindowsMaximize<CR>")
 
+-- file specific tab sizes
+vim.cmd([[
+	autocmd FileType svelte setlocal tabstop=2 shiftwidth=2 expandtab
+	autocmd FileType css setlocal tabstop=2 shiftwidth=2 expandtab
+]])
 -- theme
-vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd("colorscheme moonfly")

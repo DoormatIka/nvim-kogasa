@@ -14,6 +14,13 @@ local packer_bootstrap = ensure_packer()
 return require("packer")
 	.startup(function (use)
 		use "wbthomason/packer.nvim"
+		use {
+			'chipsenkbeil/distant.nvim',
+			branch = 'v0.3',
+			config = function()
+				require('distant'):setup()
+			end
+		}
         use {
             "nvim-telescope/telescope.nvim",
             requires = { {"nvim-lua/plenary.nvim"} },
@@ -50,6 +57,10 @@ return require("packer")
 				}
 			end
 		}
+		use {
+			"bluz71/vim-moonfly-colors",
+			as = "moonfly",
+		}
         use {
             "rose-pine/neovim",
             as = "rose-pine",
@@ -74,41 +85,62 @@ return require("packer")
     	        "nvim-tree/nvim-web-devicons",
     			"MunifTanjim/nui.nvim",
     	    },
-        config = function ()
-            require("neo-tree").setup({
-                popup_border_style = "rounded",
-                enable_diagnostics = true,
-                enable_git_status = true,
-                open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
-                window = {
-                    position = "left",
-                    width = 20,
-                    mappings = {
-                        ["a"] = {
-                            "add",
-                            config = {
-                                show_path = "relative"
-                            }
-                        },
-                        ["d"] = "delete"
-                    }
-                },
-                filesystem = {
-                    use_libuv_file_watcher = false,
-                    filtered_items = {
-                        visible = true,
-                        hide_dotfiles = false,
-                        hide_gitignored = false
-                    },
-                    window = {
-                        mappings = {
-                            ["<bs>"] = "navigate_up",
-                            ["."] = "set_root"
-                        }
-                    }
-                }
-            })
-        end
+			config = function ()
+				require("neo-tree").setup({
+					popup_border_style = "rounded",
+					enable_diagnostics = true,
+					enable_git_status = true,
+					open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
+					window = {
+						position = "left",
+						width = 20,
+						mappings = {
+							["a"] = {
+								"add",
+								config = {
+									show_path = "relative"
+								}
+							},
+							["d"] = "delete"
+						}
+					},
+					filesystem = {
+						use_libuv_file_watcher = false,
+						filtered_items = {
+							visible = true,
+							hide_dotfiles = false,
+							hide_gitignored = false
+						},
+						window = {
+							mappings = {
+								["<bs>"] = "navigate_up",
+								["."] = "set_root"
+							}
+						}
+					}
+				})
+			end
+		}
+	use {
+		"OXY2DEV/markview.nvim",
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons"
+		},
+		config = function ()
+			require("markview").setup {
+				modes = { "n", "i", "no", "c" },
+				hybrid_modes = { "i" },
+
+				-- This is nice to have
+				callbacks = {
+					on_enable = function (_, win)
+						vim.wo[win].conceallevel = 2;
+						vim.wo[win].concealcursor = "nc";
+					end
+				}
+			}
+		end
 	}
 	use {
 		"akinsho/bufferline.nvim",

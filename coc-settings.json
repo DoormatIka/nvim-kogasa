@@ -17,10 +17,17 @@
 	],
 	"sumneko-lua.enableNvimLuaDev": true,
 	"css.lint.unknownAtRules": "ignore",
+
 	"rust-analyzer.diagnostics.enable": true,
 	"rust-analyzer.workspace.symbol.search.scope": "workspace",
-	"rust-analyzer.server.path": "C:/Users/muya/Documents/muyas-files/programming/rust/lsp",
 	"rust-analyzer.lens.enable": true,
+	"rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
+
+	"rust-analyzer.diagnostics.experimental.enable": true,
+	"rust-analyzer.cachePriming.enable": true,
+	"rust-analyzer.checkOnSave": true,
+	"rust-analyzer.procMacro.enable": true,
+
 	"clangd.path": "C:\\Users\\muya\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\16.0.2\\clangd_16.0.2\\bin\\clangd.exe",
 	"go.goplsOptions": {
 		"symbolScope": "all",
@@ -34,4 +41,14 @@
 		}
 	},
 	"omnisharp.version": "v1.37.6",
+	"java.configuration.runtimes": [
+		{
+			"name": "JavaSE-17",
+			"path": "C:/Program Files/Eclipse Adoptium/jdk-17.0.10.7-hotspot",
+			"default": true,
+		}
+	],
+	"[java]": {
+		"semanticTokens.enable": true
+	}
 }
